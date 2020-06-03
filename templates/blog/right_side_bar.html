@@ -1,5 +1,7 @@
 {% load blog_tags %}
 
+{% block toc %}{% endblock %}
+
 <div class="row">
     <div class="widget">
         <h3>最新博客:</h3>
@@ -12,7 +14,6 @@
                 </div>
             </div>
         {% endfor %}
-
     </div>
 </div>
 
@@ -27,7 +28,6 @@
                 <span class="badge" style="color: white;background-color: deepskyblue">{{ entry.visiting }}</span>
             </div>
         {% endfor %}
-
     </div>
 </div>
 

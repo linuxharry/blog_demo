@@ -38,6 +38,15 @@
             </div>
 
             <div class="col-md-3">
+                {% block toc %}
+                    <div class="row">
+                        <div class="widget">
+                            <h3>博客目录:</h3>
+                            {{ entry.toc }}
+                        </div>
+                    </div>
+                    <hr/>
+                {% endblock %}
                 {% include 'blog/right_side_bar.html' %}
             </div>
         </div>
