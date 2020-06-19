@@ -7,8 +7,8 @@ git pull
 
 $ENV_BIN/pip install -r requirements.txt
 $ENV_BIN/python3 manage.py collectstatic --noinput
-$ENV_BIN/python3 manage.py makemigrations
-$ENV_BIN/python3 manage.py migrate
+#$ENV_BIN/python3 manage.py makemigrations
+#$ENV_BIN/python3 manage.py migrate
 
 killall -9 uwsgi
 
