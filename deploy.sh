@@ -1,7 +1,7 @@
 #!/bin/bash
 
-PROJECT_HOME = /home/test/website
-ENV_BIN =  /home/test/for_website/bin
+PROJECT_HOME=/home/test/website
+ENV_BIN=/home/test/for_website/bin
 cd $PROJECT_HOME
 git pull
 
