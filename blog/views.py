@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.shortcuts import redirect
 from django.shortcuts import get_object_or_404
 from . import models
+from django_comments import models as comment_models
 import markdown
 import pygments
 from django.db.models import Q
@@ -150,6 +151,20 @@ def detail(request, blog_id):
     entry.body = md.convert(entry.body)
     entry.toc = md.toc
     entry.increase_visiting()
+
+    comment_list = []
+
+    def get_comment_list(comments):
+        for comment in comments:
+            comment_list.append(comment)
+            children = comment.child_comment.all()
+            if len(children) > 0:
+                get_comment_list(children)
+
+    top_comments = comment_models.Comment.objects.filter(object_pk=blog_id, parent_comment=None,
+                                          content_type__app_label='blog').order_by('-submit_date')
+
+    get_comment_list(top_comments)
     return render(request, 'blog/detail.html', locals())
 
 
@@ -247,3 +262,10 @@ def logout(request):
         return redirect(request.GET.get('next', '/'))
     else:
         return redirect('/')
+
+
+def reply(request, comment_id):
+    if not request.session.get('login', None) and not request.user.is_authenticated():
+        redirect('/')
+    parent_comment = get_object_or_404(comment_models.Comment, id=comment_id)
+    return render(request, 'blog/reply.html', locals())

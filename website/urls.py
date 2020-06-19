@@ -35,6 +35,7 @@ urlpatterns = [
                   url(r'^login/$', blog_views.login),
                   url(r'^logout/$', blog_views.logout),
                   url(r'^latest/feed/$', LatestEntriesFeed()),
+                  url(r'^comments/', include('django_comments.urls')),
                   url(r'^sitemap\.xml$', sitemap, {'sitemaps': {'blog': GenericSitemap(info_dict, priority=0.6)}},
                       name='django.contrib.sitemaps.views.sitemap'),
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

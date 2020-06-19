@@ -38,7 +38,11 @@ INSTALLED_APPS = [
     'blog',
     'blog.templatetags',
     'django.contrib.sitemaps',
+    'django.contrib.sites',
+    'django_comments',
 ]
+
+SITE_ID = 1
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

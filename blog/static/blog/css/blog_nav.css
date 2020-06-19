@@ -150,3 +150,34 @@ nav .navbar-form {
     margin-left: 0;
     padding-left: 0;
 }
+
+hr {
+    border-top: 1px solid lightgrey;
+    border-bottom: 1px solid #fff;
+}
+
+.single_comment {
+    margin-bottom: 20px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif, "Apple Color Emoji";
+}
+
+.single_comment img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    float: left;
+    margin-left: 10px;
+    margin-top: 5px;
+}
+
+.single_comment p {
+    margin-bottom: 0;
+
+}
+
+.comment-content {
+    border-bottom: 1px dashed lightgrey;
+    border-left: 1px dashed #2d7da4;
+    padding-bottom: 5px;
+}
